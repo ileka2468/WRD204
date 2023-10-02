@@ -51,8 +51,8 @@
                 <a href="#install" class="list-group-item list-group-item-action">Install Pycharm</a>
                 <a href="#newproject" class="list-group-item list-group-item-action">Setup a new project</a>
                 <a href="#navigate" class="list-group-item list-group-item-action">Navigate the UI</a>
-                <a href="#" class="list-group-item list-group-item-action">Setup virtual environments and dependencies</a>
-                <a href="#" class="list-group-item list-group-item-action ">Debug code</a>
+                <a href="#venv" class="list-group-item list-group-item-action">Setup virtual environments and dependencies</a>
+                <a href="#debug" class="list-group-item list-group-item-action ">Debug code</a>
                 <a href="#" class="list-group-item list-group-item-action ">Customize the IDE</a>
               </div>
 
@@ -154,6 +154,73 @@
                <li>Text Editor - Here we can type and edit our code.</li>
                <li>Output and version control - This is where we can monitor code output with the terminal or pycharm console and also configure version control settings.</li>
             </ul>
+            
+        </div>
+
+        <div id="venv" class="container">
+  
+            <hr>
+
+            <h4 class="display-6 text-center">Setting Up Virtual Environments and Dependencies</h4>
+
+            <p>Let's learn how to configure project dependencies in PyCharm. Python is a versatile all purpose programming language meaning we can use it for things as simple as desktop or web automation or more complex things like web servers or machine learning. The key to unlocking these capabilities are project dependencies. 
+            </p>
+
+            <p>
+                When we want to spin up a web server it's considered bad practice to implement that code by yourself because there could be vulnerabilities in your approach. As programmers we try not to reinvent the wheel, so we simply import libraries/packages to get safe, reliable, and maintained code, we then use the APIs (application programming interface) that the library provides to use their code. To import these dependencies we need to install them from the internet and that is what PyCharm makes easy.
+            </p>
+
+            <p>Let's look at how to setup some project dependencies in PyCharm:</p>
+
+            <ol>
+                <li>Click your python environment in the bottom right of the IDE, it has your python version listed.</li>
+                <img class="img-fluid" src="../img/screenshots/dep.png" alt="">
+                <li>Now click "Interpreter Settings" and you will get the following screen.</li>
+                <img class="img-fluid" src="../img/screenshots/dep2.png" alt="">
+                <li>If we click on the plus highlighted in red in the above picture we will be able to search for the python package we want. Let's install numpy a python library essential for all things data science. Click the "Install Package" button.</li>
+                <img class="img-fluid" src="../img/screenshots/dep3.png" alt="" srcset="">
+            </ol>
+
+            <p>That's it! Let's navigate back to the text editor and use our package. In the editor we use the "import" keyword to import our numpy package then we can optionally alias it by using "as np" to make it easier to type. Then through the np keyword we now have access to the package code for numpy.</p>
+
+            <img class="img-fluid screenshot mx-auto d-block" src="../img/screenshots/depdemo.png">
+
+            
+        </div>
+
+        <div id="debug" class="container">
+  
+            <hr>
+
+            <h4 class="display-6 text-center">Debugging Code</h4>
+
+            <p>Let's learn how to use the built-in code debugger in PyCharm.</p>
+
+            <p>Suppose we have some code with an error such as the picture below let's walkthrough how we can use the debugger to gain insight on why our code isn't working.</p>
+
+            <img class="img-fluid mx-auto d-block" src="../img/screenshots/debug.PNG" alt="">
+
+            <p class="mt-4 mb-4">To use the debugger we need to set a breakpoint in the code. A breakpoint is where the execution of the program will pause and wait for us to step through it manually so we can examine the state of the program and see whats going on. You can think of breakpoints like in a movie or TV show when there is something you want to see closely frame by frame. So you would pause your show with the remote and spam pause and play to see it play out in slow motion, this is the same concept as a breakpoint.</p>
+
+            <p>We can set a breakpoint by clicking on the left margin of the code lines in the text editor. When a breakpoint is set you will see a red dot on that line. After setting the break point click the debug button.</p>
+            <img class="img-fluid mx-auto d-block" src="../img/screenshots/break.PNG" alt="">
+
+            <p>When we click the debug button we open the debugger view in the bottom portion of the window, here we are provided with buttons that will allow us to move through our code line by line, we are also shown relevant variable names.</p>
+
+            <p>Here is what they do:</p>
+
+            <ul>
+                <li>Step Into: Enters the method or function about to be executed.</li>
+                <li>Step Out: Exits the current method or function, returning to the caller.</li>
+                <li>Step Over: Advances to the next line in the same function, skipping called methods.</li>
+                <li>Step into My Code: Like "Step Into", but avoids library or non-user code.</li>
+                <li>Run to Cursor: Executes code until the line where the cursor is placed.</li>
+            </ul>
+
+            <img class="img-fluid mx-auto d-block" src="../img/screenshots/break3.PNG" alt="">
+
+            <p>Aha! So as we stepped through the code the debugger showed us that array counting starts at 0, meaning we weren't printing "A" because we skipped it by starting the print at position 1. So, we received the error because position 4 doesn't exist in this array, it's out of bounds. Now we can correct our code and move on.</p>
+
             
         </div>
 
