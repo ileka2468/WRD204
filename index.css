@@ -1,6 +1,9 @@
 .logo{
     width: 3em;
 }
+html,body{
+    scroll-behavior: smooth;
+}
 
 .list-group {
     width: 50%; /* or any specific width */
@@ -17,4 +20,14 @@ body{
 
 p{
     font-size: 18px;
+}
+
+.list-group-item:hover{
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.options-exp li{
+    margin-bottom: 1em;
 }
