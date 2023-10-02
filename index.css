@@ -1,0 +1,20 @@
+.logo{
+    width: 3em;
+}
+
+.list-group {
+    width: 50%; /* or any specific width */
+    margin: 0 auto; /* to center the list */
+}
+
+.screenshot{
+    width: 75%;
+}
+
+body{
+    background-color: #F4F3F2;
+}
+
+p{
+    font-size: 18px;
+}
