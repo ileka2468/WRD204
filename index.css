@@ -31,3 +31,20 @@ p{
 .options-exp li{
     margin-bottom: 1em;
 }
+
+
+
+
+/* Lang Chain Styles */
+
+.author{
+    color: gray;
+}
+
+.name{
+    text-decoration: underline;
+    color: gray;
+}
+.name:hover{
+    color: #007bff;
+}
