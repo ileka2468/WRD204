@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LangChain Setup Prerequisites</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="mb-4">LangChain Setup Prerequisites</h2>
+                <div id="accordion">
+                    <!-- LangChain Installation -->
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    1. Installing LangChain
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                <p>LangChain requires Python 3.6 or newer. Install LangChain using pip:</p>
+                                <code>pip install langchain</code>
+                                <p>Make sure Python and pip are correctly installed on your system before proceeding.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- OpenAI API Key -->
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    2. Obtaining Your OpenAI API Key
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                <p>To use OpenAI's models, you need an API key. Follow these steps:</p>
+                                <ul>
+                                    <li>Sign up or log in to your OpenAI account.</li>
+                                    <li>Navigate to the API section and follow the prompts to create a new API key.</li>
+                                    <li>Keep your API key secure; it's your personal access token to OpenAI's services.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Additional Dependencies -->
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    3. Installing Additional Dependencies
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body">
+                                <p>Depending on your project's requirements, you might need additional dependencies like NumPy or requests. Install them using pip:</p>
+                                <code>pip install numpy requests</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

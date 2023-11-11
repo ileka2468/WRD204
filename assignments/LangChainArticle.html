@@ -56,9 +56,119 @@
 
         <div class="container">
             <p>
-                In the ever-evolving world of artificial intelligence, the ability to customize language models to specific needs has become increasingly important. LangChain, an innovative framework for building applications with language models, offers powerful capabilities for this customization. This article delves into the process of setting up a custom Language Model using LangChain, specifically focusing on utilizing web-scraped data as a source for enhancing the model's responses. Whether you're a developer, data scientist, or an AI enthusiast, this guide will walk you through the necessary steps and considerations for leveraging LangChain with your unique data sets. From scraping academic program details from a university website to embedding this data into a conversational AI model, we'll explore how to tailor AI responses more precisely to specific queries.
+              With the rapid development of the artificial intelligence (AI) industry, the ability to adapt language models to individual needs is increasingly important. Fortunately this is now easily achieved with open source options such as the robust API provided by LangChain, an AI framework that combines a wide range of language model tools into a unified software development kit. This guide will delve into the process of setting up a custom language model using LangChain, focusing specifically on using web-scraped data as a resource to augment the model's responses. Whether you're a data scientist, an AI enthusiast, or a developer looking to integrate AI into your app, this article will show you the steps and concepts you need to use LangChain with your data. This guide will use a practical example that demonstrates how web scraped curriculum information obtained from the DePaul University website can be integrated into a conversational AI model. By the end of this tutorial, you'll have an AI model ready to answer questions about your dataset, happy chatting!
             </p>
         </div>
+
+        <div class="container mt-5">
+          <div class="row">
+              <div class="col-md-12">
+                  <h2 class="mb-4">LangChain Setup Prerequisites</h2>
+                  <div id="accordion">
+                      <!-- LangChain Installation -->
+                      <div class="card">
+                          <div class="card-header" id="headingOne">
+                              <h5 class="mb-0">
+                                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <span class="numbering">1.</span> Installing LangChain
+                                  </button>
+                              </h5>
+                          </div>
+  
+                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                              <div class="card-body">
+                                  <p>LangChain requires Python 3.8.1 or newer. Install LangChain using pip:</p>
+                                  <pre>
+                                    <code class="language-PowerShell">
+                                      pip install langchain
+                                    </code>
+                                  </pre>
+                                  <p>Make sure Python and pip are correctly installed on your system before proceeding.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- OpenAI API Key -->
+                      <div class="card">
+                          <div class="card-header" id="headingTwo">
+                              <h5 class="mb-0">
+                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <span class="numbering">2.</span> Obtaining Your OpenAI API Key
+                                  </button>
+                              </h5>
+                          </div>
+                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                              <div class="card-body">
+                                  <p>To use OpenAI's models, you need an API key. Follow these steps:</p>
+                                  <ul>
+                                      <li>Sign up or log in to your OpenAI account.</li>
+                                      <li>Navigate to the API section and follow the prompts to create a new API key.</li>
+                                      <li>Keep your API key secure; it's your personal access token to OpenAI's services.</li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- Additional Dependencies -->
+                      <div class="card">
+                          <div class="card-header" id="headingThree">
+                              <h5 class="mb-0">
+                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                     <span class="numbering">3.</span> Installing Additional Dependencies
+                                  </button>
+                              </h5>
+                          </div>
+                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                              <div class="card-body">
+                                  <p>Depending on your project's requirements, you might need additional dependencies like NumPy or requests. Install them using pip:</p>
+                                  <pre>
+                                    <code class="language-PowerShell">
+                                      pip install numpy
+                                    </code>
+                                  </pre>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+
+      <div class="container mt-5">
+        <h2>Data Collection and Organization for AI</h2>
+        <p class="lead">Before diving into AI, it's crucial to collect and organize your data effectively. Proper data management increases the accuracy and efficiency of your AI model.</p>
+
+        <!-- Step 1: Data Determination -->
+        <div class="card mb-3">
+            <div class="card-header">
+                Step 1: Determine the Data You Need
+            </div>
+            <div class="card-body">
+                <p>Identify the data necessary for your project. Start by finding your target website's sitemap. If no sitemap is available, use online tools to generate one. Remember to always respect the website's robots.txt file to ensure that scraping is permissible.</p>
+            </div>
+        </div>
+
+        <!-- Step 2: Choosing the Right Tool -->
+        <div class="card mb-3">
+            <div class="card-header">
+                Step 2: Choose the Right Scraping Tool
+            </div>
+            <div class="card-body">
+                <p>Select a web scraping tool based on your needs. Use Selenium for complex interactions like clicking buttons. For simpler tasks, such as extracting specific webpage parts, BeautifulSoup (bs4) is a more efficient choice. This tutorial will use bs4 for simplicity, but it's generally advisable to write targeted scraping code.</p>
+            </div>
+        </div>
+
+        <!-- Step 3: Running the Scraper -->
+        <div class="card mb-3">
+            <div class="card-header">
+                Step 3: Run Your Scraper
+            </div>
+            <div class="card-body">
+                <p>Execute your scraping code to download the required webpage data. Store the data in a text format within a designated folder, as these files will be used later to create document objects for the AI model.</p>
+            </div>
+        </div>
+
+    </div>
         
         
       </main>

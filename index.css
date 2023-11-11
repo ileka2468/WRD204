@@ -48,3 +48,11 @@ p{
 .name:hover{
     color: #007bff;
 }
+
+.numbering{
+    color: black;
+}
+
+pre{
+    border-radius: 9.5px;
+}
