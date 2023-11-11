@@ -56,7 +56,7 @@
 
         <div class="container">
             <p>
-              With the rapid development of the artificial intelligence (AI) industry, the ability to adapt language models to individual needs is increasingly important. Fortunately this is now easily achieved with open source options such as the robust API provided by LangChain, an AI framework that combines a wide range of language model tools into a unified software development kit. This guide will delve into the process of setting up a custom language model using LangChain, focusing specifically on using web-scraped data as a resource to augment the model's responses. Whether you're a data scientist, an AI enthusiast, or a developer looking to integrate AI into your app, this article will show you the steps and concepts you need to use LangChain with your data. This guide will use a practical example that demonstrates how web scraped curriculum information obtained from the DePaul University website can be integrated into a conversational AI model. By the end of this tutorial, you'll have an AI model ready to answer questions about your dataset, happy chatting!
+              With the rapid development of the artificial intelligence (AI) industry, the ability to adapt language models to individual needs is increasingly important. Fortunately this is now easily achievable with open source options such as the library provided by LangChain, an AI framework that combines a wide range of language model tools into a unified software development kit, or at least that's how they describe it. This guide will delve into the process of setting up a custom language model using LangChain, focusing specifically on using web-scraped data as a resource to guide the model's responses. So whether you're a data scientist, an AI geek, or a developer looking to integrate AI into your app, this article will show you the steps and concepts you need to use LangChain with your data. This guide will use a practical example that demonstrates how web scraped curriculum information obtained from the DePaul University website can be integrated into a conversational AI model. By the end of this tutorial, you'll have an AI model ready to answer questions about your dataset, happy chatting!
             </p>
         </div>
 
@@ -136,7 +136,7 @@
 
       <div class="container mt-5">
         <h2>Data Collection and Organization for AI</h2>
-        <p class="lead">Before diving into AI, it's crucial to collect and organize your data effectively. Proper data management increases the accuracy and efficiency of your AI model.</p>
+        <p class="lead">The first step to creating an accurate language model is collecting and organizing our data. If you have random and irrelevant text in your documents the language model can make up details and cause random chat abnormalities.</p>
 
         <!-- Step 1: Data Determination -->
         <div class="card mb-3">
@@ -144,7 +144,26 @@
                 Step 1: Determine the Data You Need
             </div>
             <div class="card-body">
-                <p>Identify the data necessary for your project. Start by finding your target website's sitemap. If no sitemap is available, use online tools to generate one. Remember to always respect the website's robots.txt file to ensure that scraping is permissible.</p>
+                <p>Identify the data you need for your project. Start by finding a sitemap for your target website. If a sitemap doesn’t exist, create one using online tools such as <a href="https://www.xml-sitemaps.com/">https://www.xml-sitemaps.com/</a>. Remember to always respect the website’s robots.txt file to ensure that web scraping is allowed. In this guide we have identified the website site map at <a target="_blank" href="https://wwwdev.cdm.depaul.edu/sitemap.xml">https://wwwdev.cdm.depaul.edu/sitemap.xml</a>.</p>
+                 <div> 
+                  <p>We can use the following python code on the sitemap to extract the urls to a text file and save them for later.</p>
+                  <pre>
+                    <code class="language-python">
+                      from bs4 import BeautifulSoup
+
+                      sitemap_path = 'sitemap.xml'
+                      with open(sitemap_path, 'r', encoding='utf-8') as file:
+                          sitemap_xml = file.read()
+
+                      soup = BeautifulSoup(sitemap_xml, 'xml')  # Parse XML with BeautifulSoup
+                      urls = [url_tag.text for url_tag in soup.find_all('loc')]  # Extract URLs from <loc> tags
+
+                      with open("urls.txt", "w") as f:
+                          for url in urls:
+                              f.write(url)
+                    </code>
+                  </pre>
+                </div>
             </div>
         </div>
 
@@ -154,7 +173,7 @@
                 Step 2: Choose the Right Scraping Tool
             </div>
             <div class="card-body">
-                <p>Select a web scraping tool based on your needs. Use Selenium for complex interactions like clicking buttons. For simpler tasks, such as extracting specific webpage parts, BeautifulSoup (bs4) is a more efficient choice. This tutorial will use bs4 for simplicity, but it's generally advisable to write targeted scraping code.</p>
+                <p>Run your scraping code to download web page data. Save the data as .txt files and save them in a folder as these files will be used to create the document later. Alternatively, if you want your model to be able to refer to source documents and provide citations, you should also save the link to the webpage in your text file, save it on the first line or prefix it with a unique name so that it can be programmatically extracted from the text file and used as a resource in code.</p>
             </div>
         </div>
 
