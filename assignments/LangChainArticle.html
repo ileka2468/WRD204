@@ -118,10 +118,22 @@
                           </div>
                           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                               <div class="card-body">
-                                  <p>Depending on your project's requirements, you might need additional dependencies like NumPy or requests. Install them using pip:</p>
+                                  <p>Depending on your project's requirements, you might need additional dependencies like selenium, bs4 or requests. Install them using pip:</p>
                                   <pre>
                                     <code class="language-PowerShell">
-                                      pip install numpy
+                                      pip install selenium
+                                    </code>
+                                  </pre>
+
+                                  <pre>
+                                    <code class="language-PowerShell">
+                                      pip install bs4
+                                    </code>
+                                  </pre>
+
+                                  <pre>
+                                    <code class="language-PowerShell">
+                                      pip install requests
                                     </code>
                                   </pre>
                               </div>
@@ -173,7 +185,52 @@
                 Step 2: Choose the Right Scraping Tool
             </div>
             <div class="card-body">
-                <p>Run your scraping code to download web page data. Save the data as .txt files and save them in a folder as these files will be used to create the document later. Alternatively, if you want your model to be able to refer to source documents and provide citations, you should also save the link to the webpage in your text file, save it on the first line or prefix it with a unique name so that it can be programmatically extracted from the text file and used as a resource in code.</p>
+                <p>Now we can write some scraping code to extract the web page data using the urls.txt file we generated in the previous step. Depending on whether you are using selenium or bs4 you should save the scraped data as .txt files and put them in a folder as these files will be used to create document objects later. It is advised to store you scraped data in the file in a formatted way such as JSON format, XML, or some consistent custom format.</p>
+
+
+                <div>
+                  <p>
+                    Alternatively, if you want your model to be able to refer to source documents and provide citations, you should also save the link to the webpage in your text file, save it on the first line or prefix it with a unique identifier so that it can be programmatically extracted from the text file and used in code.
+                  </p>
+                  
+                </div>
+                <div>
+                  <p>In our example we will simply just extract the page content and major info such as the major name and concentration. This will be included in the file to help make searching easier for the model.</p> 
+
+                  <pre>
+                    <code class="language-python">
+                      import bs4
+                      import requests
+
+                      links = []
+                      with open('urls.txt' "r") as f:
+                          for line in f:
+                              links.append(line)
+
+                      for link in links:
+                          response = requests.get(link)
+
+                          # Check if the request was successful
+                          if response.status_code == 200:
+                              # Step 2: Parse HTML content
+                              soup = bs4.BeautifulSoup(response.text, 'html.parser')
+
+                              concentration = soup.find('h2', id="programPageConcentration")
+                              major = soup.find('h1', class_="PageTitle-v02")
+                              final_name = None
+                              if concentration:
+                                  final_name = f"{major.text} - {concentration.text}"
+                              else:
+                                  final_name = f"{major.text} - General Track"
+
+                              target_element = soup.find('div', class_='pageContent')
+
+                              with open(f'majordata/{final_name}.txt', 'w') as f:
+                                  f.write(f"Depaul University - Jarvis College of Computing and Digital Media\nMajor Name - {final_name}\nMajor Data Below:\n\n{target_element.text}")
+
+                    </code>
+                  </pre>
+                </div>
             </div>
         </div>
 
