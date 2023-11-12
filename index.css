@@ -56,3 +56,7 @@ p{
 pre{
     border-radius: 9.5px;
 }
+
+.graph{
+    width: 60%;
+}
