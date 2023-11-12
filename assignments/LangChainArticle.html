@@ -119,6 +119,7 @@
                           </div>
                           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                               <div class="card-body">
+                           
                                   <p>Depending on your project's requirements, you might need additional dependencies like selenium, bs4 or requests. Install them using pip:</p>
                                   <pre>
                                     <code class="language-PowerShell">
@@ -256,7 +257,7 @@
       <p class="lead">This section provides a high-level overview of the workflow from web-scraped content to the final AI response. Understanding each component is crucial for effectively tailoring AI responses.</p>
 
       <div class="text-center mb-3">
-        <img class="img-fluid graph" src="../img/graphics.png">
+        <img class="img-fluid workflowpic" src="../img/graphics.png">
       </div>
 
       <!-- Workflow Steps -->
@@ -327,6 +328,70 @@
       </div>
 
   </div>
+
+
+
+  <div class="container mt-5">
+    <h2>Setting up the Embedded Language Model</h2>
+    <p class="lead">Now that we have our scraped content, we can create the documents from them and pass it to the document embedding model. LangChain has many embedding models such as OpenAI Embeddings, HuggingFace Embeddings and more. This article will be using OpenAI Embeddings since we are using their API. However, it's worth noting that Hugging Face provides a free alternative to OpenAI. Checkout LangChain's documentation as it offers valuable insights to help you make an informed decision about the most suitable embedding model for your needs.</p>
+
+    <!-- Step 1: Data Determination -->
+    <div class="card mb-3">
+        <div class="card-header">
+            Step 1: Import the Required Modules
+        </div>
+        <div class="card-body">
+            <p>In order to create the documents will be importing some modules from LangChain and Python:</p>
+             <div> 
+              
+              <pre>
+                <code class="language-python">
+                  import os
+                  import pickle
+                  from dotenv import load_dotenv
+                  from langchain.vectorstores import FAISS
+                  from langchain.embeddings import OpenAIEmbeddings
+                  from langchain.docstore.document import Document
+                  import env
+                </code>
+              </pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2: Choosing the Right Tool -->
+    <div class="card mb-3">
+        <div class="card-header">
+            Step 2: Setting your API key
+        </div>
+        <div class="card-body">
+            <p>Now that we are working with the API we need to include our API key as an environment variable so any requests made by LangChain can be authenticated. Never hardcode your API key into your code rather use a .env file. </p>
+
+
+            <div>
+              
+              <pre>
+                <code class="language-python">
+                  
+                </code>
+              </pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Running the Scraper -->
+    <div class="card mb-3">
+        <div class="card-header">
+            Step 3: 
+        </div>
+        <div class="card-body">
+            <p></p>
+
+            
+        </div>
+    </div>
+
+</div>
 
       
 </main>

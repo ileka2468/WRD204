@@ -60,3 +60,18 @@ pre{
 .graph{
     width: 60%;
 }
+
+.workflowpic{
+    width: 80%;
+
+}
+
+.copy-to-clipboard-button{
+    margin-left: .4em;
+    height: 1.5em;
+}
+
+.toolbar span{
+    height: auto;
+    padding: .1em .5em !important
+}
