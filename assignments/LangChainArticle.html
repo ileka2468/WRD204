@@ -103,6 +103,7 @@
                                       <li>Sign up or log in to your OpenAI account.</li>
                                       <li>Navigate to the API section and follow the prompts to create a new API key.</li>
                                       <li>Keep your API key secure; it's your personal access token to OpenAI's services.</li>
+                                      <li>Note: OpenAI's service is NOT free. Following this tutorial will incur your account usage based charges. For more information on rates and billing visit their website at <a href="https://openai.com/pricing">https://openai.com/pricing</a>  </li>
                                   </ul>
                               </div>
                           </div>
@@ -251,12 +252,84 @@
     </div>
 
     <div class="container mt-5">
-      <h2>Understanding the Workflow</h2>
+      <h2>Understanding the AI Workflow</h2>
+      <p class="lead">This section provides a high-level overview of the workflow from web-scraped content to the final AI response. Understanding each component is crucial for effectively tailoring AI responses.</p>
+
+      <div class="text-center mb-3">
+        <img class="img-fluid graph" src="../img/graphics.png">
+      </div>
+
+      <!-- Workflow Steps -->
+      <div class="row">
+          <!-- Step 1: Web Scraped Content -->
+          <div class="col-md-4 mb-4">
+              <div class="card h-100">
+                  <div class="card-header">Web Scraped Content</div>
+                  <div class="card-body">
+                      <p>Initially, we collect relevant data from the web. This raw content is the foundational data that will be processed and used by the AI model.</p>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Step 2: Embedding Model -->
+          <div class="col-md-4 mb-4">
+              <div class="card h-100">
+                  <div class="card-header">Embedding Model</div>
+                  <div class="card-body">
+                      <p>The embedding model transforms the scraped content into a numerical form, known as embeddings. These embeddings represent the content in a way that's understandable to AI.</p>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Step 3: Document Embeddings -->
+          <div class="col-md-4 mb-4">
+              <div class="card h-100">
+                  <div class="card-header">Document Embeddings</div>
+                  <div class="card-body">
+                      <p>Document embeddings are the numerical representations of our original content, now ready for further processing and retrieval by the AI.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <!-- Step 4: Vector Store -->
+          <div class="col-md-6 mb-4">
+              <div class="card h-100">
+                  <div class="card-header">Vector Store</div>
+                  <div class="card-body">
+                      <p>The vector store is a database where document embeddings are stored. It allows for efficient searching and retrieval of relevant information in response to queries.</p>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Step 5: Query Processing -->
+          <div class="col-md-6 mb-4">
+              <div class="card h-100">
+                  <div class="card-header">Query Processing</div>
+                  <div class="card-body">
+                      <p>A user's query is also transformed into embeddings, allowing the AI to understand and match it with the most relevant information from the vector store.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <!-- Step 6: Summarization Model -->
+          <div class="col-md-6 mb-4 offset-md-3">
+              <div class="card h-100">
+                  <div class="card-header">Summarization Model</div>
+                  <div class="card-body">
+                      <p>Finally, the summarization model takes the retrieved information and generates a concise, relevant response to the user's query.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </div>
+
       
-    </div>
-        
-        
-      </main>
+</main>
       <footer class="bg-light text-center text-lg-start">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
