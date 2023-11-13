@@ -352,7 +352,6 @@
                   from langchain.vectorstores import FAISS
                   from langchain.embeddings import OpenAIEmbeddings
                   from langchain.docstore.document import Document
-                  import env
                 </code>
               </pre>
             </div>
@@ -366,15 +365,37 @@
         </div>
         <div class="card-body">
             <p>Now that we are working with the API we need to include our API key as an environment variable so any requests made by LangChain can be authenticated. Never hardcode your API key into your code rather use a .env file. </p>
-
-
             <div>
+              <ol>
+                <li> Make a .env file in the root of your project directory and add your API key.
+                  <div>
+                    <pre>
+                      <code class="language-">
+                        API_KEY = &lt;your-api-key&gt;
+                      </code>
+                    </pre>
+                  </div>
+                </li>
+
+                <li> In your python script with the imported modules from step 1, load your API key from the .env file.
+                  <div>
+                    <pre>
+                      <code class="language-python">
+                        from dotenv import load_dotenv
+                        import os
+                        import pickle
+                        from dotenv import load_dotenv
+                        from langchain.vectorstores import FAISS
+                        from langchain.embeddings import OpenAIEmbeddings
+                        from langchain.docstore.document import Document
+
+                        load_dotenv()
+                      </code>
+                    </pre>
+                  </div>
+                </li>
+              </ol>
               
-              <pre>
-                <code class="language-python">
-                  
-                </code>
-              </pre>
             </div>
         </div>
     </div>
@@ -382,12 +403,68 @@
     <!-- Step 3: Running the Scraper -->
     <div class="card mb-3">
         <div class="card-header">
-            Step 3: 
+            Step 3: Creating the documents and feeding them to the embedding model.
         </div>
         <div class="card-body">
-            <p></p>
+            <p>Take note of the folder name that you saved your web scraped content to because in this step we will be looping through that folder and all of its contents and creating the documents. This step will take some fiddling and trial and error as depending on the size of an individual document you may have to further split it into two different documents.</p>
 
-            
+            <div>
+              <p>First we will create a list of all the files in the folder and then loop through them and create the documents.</p> 
+
+              <pre>
+                <code class="language-python">
+                  # Create a list of all the files in the folder
+                  files = os.listdir('./majordata')
+
+                  # Loop through the files and create the documents
+                  documents = []
+
+                  for file in files:
+                    with open(os.path.join(path, file), 'r') as f:
+                      docs.append(Document(page_content=f.read(), metadata={"source": 1}))
+
+                  '''
+                  The metadata is optional but it is useful if you want to know the source document that the AI is referencing.
+                  Ideally you would put the link of the website that the document is from instead of 1.
+                  '''
+                </code>
+              </pre>
+        </div>
+
+        <div>
+          <p>In the event that a single file is too large to fit in a single document object, or you find that your conversational model is lacking some details or context, try splitting your files into two separate documents. However doing this causes a new problem, say the AI finds a document that matches its similarity. If the answer it found overflows into a second document it will be missing the rest of the context. So in our solution we must also include what is called a chunk overlap which defines how much text from a previous document will be included in the next document to prevent missing context.</p>
+
+          <pre>
+            <code class="language-python">
+              import os
+
+              # Define the maximum size of a document and the size of the overlap
+              max_size = 10000  # Adjust this value as needed
+              overlap_size = 1000  # Adjust this value as needed
+              
+              # Create a list of all the files in the folder
+              files = os.listdir('./majordata')
+              
+              # Loop through the files and create the documents
+              documents = []
+              
+              for file in files:
+                  with open(os.path.join(path, file), 'r') as f:
+                      content = f.read()
+                      
+                  # If the file is too large, split it into chunks with overlap
+                  if len(content) > max_size:
+                      start = 0
+                      while start < len(content):
+                          end = min(start + max_size, len(content))
+                          chunk = content[start:end]
+                          documents.append(Document(page_content=chunk, metadata={"source": 1}))
+                          start = end - overlap_size
+                  else:
+                      documents.append(Document(page_content=content, metadata={"source": 1}))
+            </code>
+          </pre>
+          <p>Ultimately, depending on your project needs you can choose the first simple script or the second one. I will be using the first script as my content files are not large enough to necessitate splitting them further.</p>
         </div>
     </div>
 
