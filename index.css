@@ -75,3 +75,7 @@ pre{
     height: auto;
     padding: .1em .5em !important
 }
+
+code[class*="language-"], pre[class*="language-"] {
+    white-space: pre-line !important;
+}
