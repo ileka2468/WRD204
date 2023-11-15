@@ -599,7 +599,7 @@
         <code class="language-python">
 
           question = "What does CDM stand for? And what classes do the CS Software Dev concentration majors take in their first year?"
-          query = f"You are an automated Academic Advisor at DePaul university called demon bot, you will be asked Course/Major specific questions about CDM majors. Make sure to give detailed responses that answer the core of the question accurately. If you dont know the answer or are unsure of it refer students to https://www.cdm.depaul.edu/ and tell them to speak to their advisor. Make sure to incloude any Liberal study requirments courses for questions that pertain to what classes a student might take, be very specific and do not foregt any classes. Student question: {question}"
+          query = f"You are an automated Academic Advisor at DePaul university called demon bot, you will be asked Course/Major specific questions about CDM majors. Make sure to give detailed responses that answer the core of the question accurately. If you don't know the answer or are unsure of it refer students to https://www.cdm.depaul.edu/ and tell them to speak to their advisor. Make sure to include any Liberal study requirements courses for questions that pertain to what classes a student might take, be very specific and do not forget any classes. Student question: {question}"
 
           answer = chain({"question": query})
           print(dict(answer))
@@ -610,7 +610,8 @@
 
       <pre>
         <code class="language-PowerShell long">
-          {'question': "You are an automated Academic Advisor at DePaul university called demon bot, you will be asked Course/Major specific questions about CDM majors. Make sure to give detailed responses that answer the core of the question accurately. If you don't know the answer or are unsure of it refer students to https://www.cdm.depaul.edu/ and tell them to speak to their advisor. Make sure to include any Liberal study requirements courses for questions that pertain to what classes a student might take, be very specific and do not forget any classes. Student question: What does CDM stand for? And what classes do the CS Software Dev concentration majors take in their first year?", 'answer': 'CDM stands for the College of Computing and Digital Media at DePaul University. For the CS Software Dev concentration majors in their first year, they would take the following classes:\n- CSC 241 and CSC 242 or CSC 243\n- 1 Major Elective\n- CSC 300\n- MAT 140\n- MAT 141\n\nIn addition to these major-specific courses, students would also need to fulfill Liberal Studies Requirements, which include:\n- LSP 110 or LSP 111\n- LSP 112\n- WRD 103\n- WRD 104\n- 1 Arts & Literature\n- 1 Social, Cultural, and Behavioral Inquiry\n\nIf you have further questions or need more information, please visit https://www.cdm.depaul.edu/ or speak to your advisor.\n', 'sources': 'https://www.cdm.depaul.edu/academics/Pages/Current/Requirements-BS-In-Computer-Science-Software-Development.aspx'}
+          {'question': "You are an automated Academic Advisor at DePaul university called demon bot, you will be asked Course/Major specific questions about CDM majors. Make sure to give detailed responses that answer the core of the question accurately. If you don't know the answer or are unsure of it refer students to https://www.cdm.depaul.edu/ and tell them to speak to their advisor. DO NOT FORGET to list the required Liberal Studies requirements courses for questions that pertain to what classes a student might take. Be very specific and do not forget any classes. Most importantly do not hallucinate details. Student question: What classes do Computer Science students who are in the Software Development concentration take in their second year?", 'answer': "Computer Science students who are in the Software Development concentration take the following classes in their second year:\n- CSC 299 Sophomore Lab in Applied Computing\n- CSC 301 Data Structures II\n- CSC 321 Design and Analysis of Algorithms\n- CSC 347 Concepts of Programming Languages\n- CSC 373 Computer Systems I\n- CSC 374 Computer Systems II\n- WRD 204 Technical Writing\nLiberal Studies Requirements:\n- LSP 200 Seminar on Race, Power, and Resistance\n- CSC 208 Ethics in Technology\n- Religious Dimensions\n- Social, Cultural, and Behavioral Inquiry\n- Historical Inquiry\n", 'sources': "https://www.cdm.depaul.edu/academics/Pages/Current/Requirements-BS-In-Computer-Science-Software-Development.aspx"}
+
 
         </code>
       </pre>
@@ -623,6 +624,15 @@
           print(dict(answer)['answer']) # print answer, or sources, or question.
         </code>
       </pre>
+
+      <p>
+        You'll notice the raw dictionary has escape sequences, this is for formatting purposes and will disappear when you display it in some standard output.
+      </p>
+
+      <div class="text-center">
+        <img class="img-fluid" src="../img/terminal.PNG" alt="">
+      </div>
+
     </div>
 </div>
 
