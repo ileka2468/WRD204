@@ -56,7 +56,7 @@
 
         <div class="container">
             <p>
-              With the rapid development of the artificial intelligence (AI) industry, the ability to adapt language models to individual needs is increasingly important. Fortunately this is now easily achievable with open source options such as the library provided by LangChain, an AI framework that combines a wide range of language model tools into a unified software development kit, or at least that's how they describe it. This guide will delve into the process of setting up a custom language model using LangChain, focusing specifically on using web-scraped data as a resource to guide the model's responses. So whether you're a data scientist, an AI geek, or a developer looking to integrate AI into your app, this article will show you the steps and concepts you need to use LangChain with your data. This guide will use a practical example that demonstrates how web scraped curriculum information obtained from the DePaul University website can be integrated into a conversational AI model. By the end of this tutorial, you'll have an AI model ready to answer questions about your dataset, happy chatting!
+              With the rapid development of the artificial intelligence (AI) industry, the ability to adapt language models to individual needs is increasingly important. Fortunately, this is now easily achievable with open source options such as the library provided by LangChain, an AI framework that combines a wide range of language model tools into a unified software development kit, or at least that's how they describe it. This guide will delve into the process of setting up a custom language model using LangChain, focusing specifically on using web-scraped data as a resource to guide the model's responses. So whether you're a data scientist, an AI geek, or a developer looking to integrate AI into your app, this article will show you the steps and concepts you need to use LangChain with your data. This guide will use a practical example that demonstrates how web scraped curriculum information obtained from the DePaul University website can be integrated into a conversational AI model. By the end of this tutorial, you'll have an AI model ready to answer questions about your dataset, happy chatting!
             </p>
         </div>
 
@@ -228,7 +228,7 @@
                               target_element = soup.find('div', class_='pageContent')
 
                               with open(f'majordata/{final_name}.txt', 'w') as f:
-                                  f.write(f"Depaul University - Jarvis College of Computing and Digital Media\nMajor Name - {final_name}\nMajor Data Below:\n\n{target_element.text}")
+                                  f.write(f"DePaul University - Jarvis College of Computing and Digital Media\nMajor Name - {final_name}\nMajor Data Below:\n\n{target_element.text}")
 
                     </code>
                   </pre>
@@ -611,8 +611,6 @@
       <pre>
         <code class="language-PowerShell long">
           {'question': "You are an automated Academic Advisor at DePaul university called demon bot, you will be asked Course/Major specific questions about CDM majors. Make sure to give detailed responses that answer the core of the question accurately. If you don't know the answer or are unsure of it refer students to https://www.cdm.depaul.edu/ and tell them to speak to their advisor. DO NOT FORGET to list the required Liberal Studies requirements courses for questions that pertain to what classes a student might take. Be very specific and do not forget any classes. Most importantly do not hallucinate details. Student question: What classes do Computer Science students who are in the Software Development concentration take in their second year?", 'answer': "Computer Science students who are in the Software Development concentration take the following classes in their second year:\n- CSC 299 Sophomore Lab in Applied Computing\n- CSC 301 Data Structures II\n- CSC 321 Design and Analysis of Algorithms\n- CSC 347 Concepts of Programming Languages\n- CSC 373 Computer Systems I\n- CSC 374 Computer Systems II\n- WRD 204 Technical Writing\nLiberal Studies Requirements:\n- LSP 200 Seminar on Race, Power, and Resistance\n- CSC 208 Ethics in Technology\n- Religious Dimensions\n- Social, Cultural, and Behavioral Inquiry\n- Historical Inquiry\n", 'sources': "https://www.cdm.depaul.edu/academics/Pages/Current/Requirements-BS-In-Computer-Science-Software-Development.aspx"}
-
-
         </code>
       </pre>
 
@@ -635,10 +633,40 @@
 
     </div>
 </div>
+<div class="container mt-6">
+  <div class="row">
+    <!-- Embedded LangChain Model -->
+    <div class="col-md-6">
+      <h2>Embedded LangChain Model</h2>
+      <p>
+        The embedded LangChain model leverages contextual information from custom data sources, providing tailored and nuanced responses. This approach enhances the AI's ability to understand and respond to specific topics or queries relevant to the embedded data. Key benefits include:
+      </p>
+      <ul>
+        <li><strong>Improved Accuracy:</strong> Tailored responses based on specific, contextual data.</li>
+        <li><strong>Customization:</strong> Ability to fine-tune responses to fit unique use-cases or domains.</li>
+        <li><strong>Context Awareness:</strong> Enhanced understanding of the nuances and specifics of the embedded data set.</li>
+      </ul>
+    </div>
 
+    <!-- Regular Non-Contextual Model -->
+    <div class="col-md-6">
+      <h2>Regular Non-Contextual Model</h2>
+      <p>
+        In contrast, a regular non-contextual model lacks the ability to incorporate specific external data, relying solely on its pre-trained knowledge base. This can limit its effectiveness in certain scenarios. Key limitations include:
+      </p>
+      <ul>
+        <li><strong>Generic Responses:</strong> Tends to provide more general answers that might not align with specific user needs.</li>
+        <li><strong>Limited Customization:</strong> Less flexibility in tailoring the model to specific domains or datasets.</li>
+        <li><strong>Lack of Depth:</strong> May not fully grasp or respond accurately to niche or specialized queries.</li>
+      </ul>
+    </div>
+  </div>
+  <p>Congratulations, you've used custom web scraped data and embedded it into a conversational model!</p>
+</div>
 </div>
       
 </main>
+
       <footer class="bg-light text-center text-lg-start">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
