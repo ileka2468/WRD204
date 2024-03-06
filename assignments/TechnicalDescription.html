@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../index.css">
+    <title>PyCharm Getting Started</title>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a  class="navbar-brand" href="../index.html">
+            <img class="logo" src="../img/logo.png" alt="" >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Assignments
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Technical Description</a>
+                <a class="dropdown-item" href="./LangChainArticle.html">LangChain Article</a>
+              </div>
+            </li>
+            
+          </ul>
+  
+        </div>
+      </nav>
+
+      <main>
+        <h1 class="display-4 text-center">Technical Description</h1>
+        <hr>
+
+        <h2 class="display-6 text-center">JetBrains Pycharm: A Brief Overview</h2>
+
+        <div class="container">
+            <p class="text-start">Integrated Development Environments (IDEs) emerged in the late 1970s and early 1980s to streamline software development by combining essential tools into one platform. One of the earliest IDEs was Turbo Pascal in 1983. PyCharm, developed by JetBrains for Python programming, is a more recent IDE which first came out in 2010, reflecting the continuous evolution and specialization of IDEs. PyCharm is one of the most popular and industry leading Python integrated development environments (IDE). As you will learn in this guide, IDEs are inherently popular amongst novices and professionals alike because of the encapsulation (putting many tools and features into one place) that they provide. By the end of this guide we will know how to: </p>
+
+
+            <div class="list-group">
+                <a href="#install" class="list-group-item list-group-item-action">Install Pycharm</a>
+                <a href="#newproject" class="list-group-item list-group-item-action">Setup a new project</a>
+                <a href="#navigate" class="list-group-item list-group-item-action">Navigate the UI</a>
+                <a href="#venv" class="list-group-item list-group-item-action">Setup virtual environments and dependencies</a>
+                <a href="#debug" class="list-group-item list-group-item-action ">Debug code</a>
+                <!-- <a href="#customizing" class="list-group-item list-group-item-action ">Customize the IDE code</a> -->
+              </div>
+
+
+            <p class="mt-3">
+             Feel free to click on any of the checklist buttons above to skip to the corresponding part of this article if you already have knowledge about some of the topics discussed, let's begin!
+            </p>
+            
+        </div>
+
+
+        <div id="install" class="container">
+            <h2 class="display-6 text-center">Pycharm: Getting Started</h2>
+            <hr>
+
+            <h4 class="display-6 text-center">Installing PyCharm</h4>
+            <p class="text-start">To install PyCharm we need to visit the PyCharm website and go to the <a href="https://www.jetbrains.com/pycharm/download/">downloads</a> section. The first download button we see is for Pycharm Professional which requires a license to be used. This version of PyCharm has more workplace features and is not free. We want to download the free community version of PyCharm, to download the community version simply scroll to the bottom of the webpage and find "Pycharm Community Edition".</p>
+
+            <img class="img-fluid screenshot mx-auto d-block" src="../img/screenshots/download.PNG">
+
+            <p class="mt-4 mb-4">Here we can download the free version of PyCharm. Notice the OS/Platform selection at the top of the page. Select your corresponding operating system.
+               <b>Note:</b>  Silicon Mac users (M1/M2 chips) need to select the dropdown arrow on the right and select "Apple Silicon" installer if you do not do this you may experience performance issues.
+            </p>
+
+
+            <img class="img-fluid screenshot mx-auto d-block" src="../img/screenshots/download2.PNG">
+
+            <p class="mt-4 mb-4">
+                Once downloaded run the installer on your system and follow along with the installation wizard to guide you through the installation process.
+            </p>
+        </div>
+
+
+        <div id="newproject" class="container">
+  
+            <hr>
+
+            <h4 class="display-6 text-center">Set Up a New Project</h4>
+
+            <p class="mt-4 mb-4">To begin a new project lets launch PyCharm, you will be greeted with the following screen.</p>
+
+            <img class="img-fluid screenshot mx-auto d-block" src="../img/screenshots/newproject.PNG">
+
+            <p class="mt-4 mb-4">To create a new project click the "New Project" button. A new screen will flyout and here we can configure our type of project. For our advanced users let's briefly step through what each setting does. If you are new to this you can generally just click the "Create" button as the default configuration will already work.</p>
+
+            <img class="img-fluid screenshot mx-auto d-block" src="../img/screenshots/newproject2.PNG" alt="">
+
+            <ul class="mt-4 mb-4 options-exp">
+                <li><b>Location</b>: This is the location where your new project will be stored. The default folder is "C:\Users\User\PycharmProjects"</li>
+
+                <li>
+                    <b>"New environment using"</b> or <b>"Previously configured interpreter"</b>: Of these two options one can only be selected. The first option allows you to create a new virtual environment which is essentially a folder where we can download project dependencies and libraries. The other option allows you to select a previously configured virtual environment by providing the path to the folder.  
+                </li>
+
+                <li><b>Inherit global site-packages</b>: This option will install libraries and packages from your local interpreter to the virtual environment that you will create.</li>
+                <li><b>Make available to all projects</b>: This option will make this virtual environment available to future projects, not just exclusively this one.</li>
+
+                <li><b>Create a main.py welcome script</b>: This option creates a default simple program to run when the project is created.</li>
+            </ul>
+
+            <p class="mt-4 mb-4">
+                Lets shift our attention to the left side of the project creation. Here we can see a list of preconfigured projects for various frameworks. Clicking on one of these options will allow you to quickly create a project of that type and PyCharm will handle the installation of extra dependencies and packages. In this guide we will configure a simple pure python project, so lets click the "Create" button.
+            </p>
+
+            <img class="img-fluid screenshot mx-auto d-block"  src="../img/screenshots/newproject3.png" alt="">
+            
+        </div>
+
+        <div id="navigate" class="container">
+  
+            <hr>
+
+            <h4 class="display-6 text-center">Navigate the UI</h4>
+
+            <p>Now that we've created our project let's learn how to navigate the IDE. Refer to the diagram below.</p>
+
+            <img class="img-fluid screenshot mx-auto d-block" src="../img/screenshots/navigate1.png" alt="">
+
+            <ul class="mt-4 mb-4 options-exp">
+               <li>Project Tree - To the left you will see the project file tree which show all the folders and files in the project folder. <em>Double clicking</em> on a file here will open it in the text editor.</li>
+               <li>IDE Settings Menu -
+                <ul>
+                    <li>File : Here we can find IDE related settings, for example in file we can find settings related to saving the code, renaming the code, closing the project, recent projects etc.</li>
+
+                    <li>Edit : Here we can find text editing related settings such as redo, undo, copy, paste, cut etc. All these settings have shortcuts as well.</li>
+
+                    <li>Navigate : Here we can find settings that can help us navigate our code, we can use Navigate to look for specific code and functions by searching.
+                    </li>
+
+                    <li>Code : Here we can find settings that help us while coding such as copying lines up or down, analyzing code, formatting code etc.</li>
+                    <li>Refactor : Here we can find settings that allow us to refactor (change/improve) our code.</li>
+                    <li>Run : This is self explanatory, here we can find settings related to running and executing code.</li>
+                    <li>Tools : Here we can find built in IDE tools for creating files, configuring servers and interacting with other services etc.</li>
+                    <li>VCS : Version control allows us to track changes in our code by linking a version control system such as github, and allows us to easily push changes to those code repositories online.</li>
+                </ul>
+               </li>
+               <li>Opened Files - This is where we can see and swap through our currently open files. To close them click the x.</li>
+               <li>Run Tools - Here we can run, stop, and debug our code.</li>
+               <li>Text Editor - Here we can type and edit our code.</li>
+               <li>Output and version control - This is where we can monitor code output with the terminal or pycharm console and also configure version control settings.</li>
+            </ul>
+            
+        </div>
+
+        <div id="venv" class="container">
+  
+            <hr>
+
+            <h4 class="display-6 text-center">Setting Up Virtual Environments and Dependencies</h4>
+
+            <p>Let's learn how to configure project dependencies in PyCharm. Python is a versatile all purpose programming language meaning we can use it for things as simple as desktop or web automation or more complex things like web servers or machine learning. The key to unlocking these capabilities are project dependencies. 
+            </p>
+
+            <p>
+                When we want to spin up a web server it's considered bad practice to implement that code by yourself because there could be vulnerabilities in your approach. As programmers we try not to reinvent the wheel, so we simply import libraries/packages to get safe, reliable, and maintained code, we then use the APIs (application programming interface) that the library provides to use their code. To import these dependencies we need to install them from the internet and that is what PyCharm makes easy.
+            </p>
+
+            <p>Let's look at how to setup some project dependencies in PyCharm:</p>
+
+            <ol>
+                <li>Click your python environment in the bottom right of the IDE, it has your python version listed.</li>
+                <img class="img-fluid" src="../img/screenshots/dep.png" alt="">
+                <li>Now click "Interpreter Settings" and you will get the following screen.</li>
+                <img class="img-fluid" src="../img/screenshots/dep2.png" alt="">
+                <li>If we click on the plus highlighted in red in the above picture we will be able to search for the python package we want. Let's install numpy a python library essential for all things data science. Click the "Install Package" button.</li>
+                <img class="img-fluid" src="../img/screenshots/dep3.png" alt="" srcset="">
+            </ol>
+
+            <p>That's it! Let's navigate back to the text editor and use our package. In the editor we use the "import" keyword to import our numpy package then we can optionally alias it by using "as np" to make it easier to type. Then through the np keyword we now have access to the package code for numpy.</p>
+
+            <img class="img-fluid screenshot mx-auto d-block" src="../img/screenshots/depdemo.png">
+
+            
+        </div>
+
+        <div id="debug" class="container">
+  
+            <hr>
+
+            <h4 class="display-6 text-center">Debugging Code</h4>
+
+            <p>Let's learn how to use the built-in code debugger in PyCharm.</p>
+
+            <p>Suppose we have some code with an error such as the picture below let's walkthrough how we can use the debugger to gain insight on why our code isn't working.</p>
+
+            <img class="img-fluid mx-auto d-block" src="../img/screenshots/debug.PNG" alt="">
+
+            <p class="mt-4 mb-4">To use the debugger we need to set a breakpoint in the code. A breakpoint is where the execution of the program will pause and wait for us to step through it manually so we can examine the state of the program and see whats going on. You can think of breakpoints like in a movie or TV show when there is something you want to see closely frame by frame. So you would pause your show with the remote and spam pause and play to see it play out in slow motion, this is the same concept as a breakpoint.</p>
+
+            <p>We can set a breakpoint by clicking on the left margin of the code lines in the text editor. When a breakpoint is set you will see a red dot on that line. After setting the break point click the debug button.</p>
+            <img class="img-fluid mx-auto d-block" src="../img/screenshots/break.png" alt="">
+
+            <p>When we click the debug button we open the debugger view in the bottom portion of the window, here we are provided with buttons that will allow us to move through our code line by line, we are also shown relevant variable names.</p>
+
+            <p>Here is what they do:</p>
+
+            <ul>
+                <li>Step Into: Enters the method or function about to be executed.</li>
+                <li>Step Out: Exits the current method or function, returning to the caller.</li>
+                <li>Step Over: Advances to the next line in the same function, skipping called methods.</li>
+                <li>Step into My Code: Like "Step Into", but avoids library or non-user code.</li>
+                <li>Run to Cursor: Executes code until the line where the cursor is placed.</li>
+            </ul>
+
+            <img class="img-fluid mx-auto d-block" src="../img/screenshots/break3.png" alt="">
+
+            <p>Aha! So as we stepped through the code the debugger showed us that array counting starts at 0, meaning we weren't printing "A" because we skipped it by starting the print at position 1. So, we received the error because position 4 doesn't exist in this array, it's out of bounds. Now we can correct our code and move on.
+            </p>
+
+            
+        </div>
+
+        <!-- <div id="customizing" class="container">
+  
+          <hr>
+
+          <h4 class="display-6 text-center">Customizing the IDE</h4>
+
+          <p>Let's learn how to customize PyCharm through the extension store. PyCharm has an extension store that allows you to add various additional features. Such features could include new themes to change the color scheme of the IDE, or plugins that allow you to share your status and what you're working on with others.</p>
+
+          <p>Let's install a new theme!</p>
+
+          <ol>
+            <li>
+              Open
+            </li>
+          </ol>
+
+        
+          
+      </div> -->
+
+      </main>
+      <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2023 Copyright:
+          <a class="text-dark" href="https://ileka2468.github.io/website">William Ileka</a>
+        </div>
+      </footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
